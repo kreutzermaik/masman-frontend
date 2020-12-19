@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpRequestService } from 'src/app/services/http-service/http-request.service'
 
 @Component({
   selector: 'app-overview',
@@ -13,13 +14,12 @@ export class OverviewComponent implements OnInit {
 
   records: ""
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private get: HttpRequestService) { }
 
   ngOnInit(): void {
 
-    this.http.get<any>('http://localhost:3000/records').subscribe(data => {
-      this.records = data;
-    })
+    let data = this.get.getRequest();
+    console.log(data)
 
   }
 

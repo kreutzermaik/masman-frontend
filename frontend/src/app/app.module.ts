@@ -15,12 +15,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: MainComponent },
-  { path: "overview", component: OverviewComponent },
+  { path: "übersicht", component: OverviewComponent },
   { path: "csv", component: CsvComponent },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
