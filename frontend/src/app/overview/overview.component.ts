@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { HttpRequestService } from 'src/app/services/http-service/http-request.service'
 
 @Component({
@@ -11,23 +10,20 @@ export class OverviewComponent implements OnInit {
 
   exercise: string
   reps: string
-
   records: ""
 
-  constructor(private http: HttpClient, private get: HttpRequestService) { }
+  constructor(public http: HttpRequestService) { }
 
   ngOnInit(): void {
 
-    let data = this.get.getRequest();
-    console.log(data)
+    this.http.getRecords().subscribe(data=>{
+      this.records = data;
+    });
 
   }
 
   addRecord(): void {
-    this.http.post<any>('http://localhost:3000/records', 
-      { name: this.exercise, reps: this.reps }).subscribe(data => {
-    })
-    window.location.reload();
+    this.http.postRecords(this.exercise, this.reps);
   }
 
 }

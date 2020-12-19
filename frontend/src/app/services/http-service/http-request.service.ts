@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ReturnStatement } from '@angular/compiler';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpRequestService {
-  records: ""
+
+  records: string
+  test: string
+
   constructor(private http: HttpClient) {}
 
-  getRequest(): String {
-    this.http.get<any>('http://localhost:3000/records').subscribe(data => {
-      this.records = data;
-      console.log(this.records)
-    });
-    return this.records;
+  getRecords(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/records');
+  };
+
+  postRecords(exercise, reps): void {
+    this.http.post<any>('http://localhost:3000/records', 
+      { name: exercise, reps: reps }).subscribe(data => {
+    })
+    window.location.reload();
   }
 
-  // display(data) {
-  //   console.log(data);
-  //   this.records = data;
-  //   console.log(this.records)
-  // }
 
 }
