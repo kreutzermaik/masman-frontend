@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap');
+
+h1 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.tab-content {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <h1>Übersicht</h1>
+  </div>
+  <div class="row">
+    <form>
+      <h2>Personal Information</h2>
+      <label>
+        First Name:
+        <input type="text" placeholder="required">
+      </label>
+      <label>
+        Phone Number:
+        <input type="text" placeholder="required">
+      </label>
+      <label>Select Preferred Location:</label>
+      <select>
+        <option *ngFor="let loc of locations" [ngValue]="loc">{{loc}}</option>
+      </select>
+      <h2>Please select what animals you're comfortable working with, if any:</h2>
+      <div class="grouping">
+        <label>Dogs
+          <input type="checkbox">
+        </label>
+        <label>Cats
+          <input type="checkbox">
+        </label>
+        <label>Reptiles
+          <input type="checkbox">
+        </label>
+      </div>
+      <h2>Reference(s)</h2>
+      <div class="grouping">
+        <label>
+          Reference Email:
+          <input type="text" placeholder="optional">
+          <button type="button" id="remove_email">X</button>
+        </label>
+      </div>
+      <button type="button">Add Another Reference</button>
+      <button id="apply_button">Apply</button>
+    </form>
+  </div>
+</div>
