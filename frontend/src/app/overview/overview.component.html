@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <h1>Übersicht</h1>
+    <form>
+      <h2>Neuer Rekord</h2>
+      <mat-form-field appearance="fill" >
+        <mat-label>Übung</mat-label>
+        <input matInput name="exercise" [(ngModel)]="exercise">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Wert</mat-label>
+        <input matInput name="reps" [(ngModel)]="reps">
+      </mat-form-field>
+ 
+      <button mat-raised-button color="primary" (click)="addRecord()">Rekord hinzufügen</button>
+    </form>
+  </div>
+
+  <br><br><br>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Übung</th>
+        <th>Reps</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td>{{ record['name'] }}</td>
+        <td>{{ record['reps'] }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
