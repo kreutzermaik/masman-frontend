@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Workout starten</h1>
+    <br>
+
+    <button (click)='startTimer()'>Start Timer</button>
+<button (click)='pauseTimer()'>Pause</button>
+
+<p>{{timeLeft}} Seconds Left....</p>
+
+
+<h2> {{ workouts[0]['id'] }}</h2>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Übung</th>
+        <th>Reps</th>
+        <th>Zeit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workout of workouts">
+        <td>{{ workout['name'] }}</td>
+        <td *ngIf="workout['reps']" else emptyContent>{{ workout['reps'] }} Wiederholungen</td>
+        <td>
+         <ng-template #emptyContent> - </ng-template>
+        </td>
+        <td *ngIf="workout['time']" else emptyContent>{{ workout['time'] }} Sekunden</td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+
+
+</div>

@@ -7,7 +7,10 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-const einstempeln = require("./routes/records.js");
-app.use("/", einstempeln);
+const records = require("./routes/records.js");
+app.use("/", records);
+
+const workouts = require("./routes/workouts.js");
+app.use("/", workouts);
 
 app.listen(3000, () => console.log("Server Listening at 3000"));

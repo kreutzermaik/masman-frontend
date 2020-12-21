@@ -16,12 +16,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { WorkoutsComponent } from './workouts/workouts.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: MainComponent },
   { path: "übersicht", component: OverviewComponent },
+  { path: "workouts", component: WorkoutsComponent },
   { path: "csv", component: CsvComponent },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
     MainComponent,
     CsvComponent,
     OverviewComponent,
-    HeaderComponent
+    HeaderComponent,
+    WorkoutsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

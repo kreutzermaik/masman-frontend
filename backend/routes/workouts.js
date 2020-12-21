@@ -4,8 +4,8 @@ const db = require("../lib/db.js");
 
 const app = express();
 
-router.get("/records", (req, res, next) => {
-  db.query(`SELECT name, reps FROM records`, (err, result) => {
+router.get("/workouts", (req, res, next) => {
+  db.query(`SELECT * FROM workouts`, (err, result) => {
     if (err) {
       throw err;
       return res.status(400).send({
@@ -17,9 +17,9 @@ router.get("/records", (req, res, next) => {
   });
 });
 
-router.post("/records", (req, res, next) => {
+router.post("/workouts", (req, res, next) => {
   db.query(
-    `INSERT INTO records (id, name, reps) VALUES (0, '${req.body.name}', '${req.body.reps}')`,
+    `INSERT INTO workouts (id, name, reps, time) VALUES ('${req.body.id}', '${req.body.name}', '${req.body.reps}', '${req.body.time}')`,
     (err, result) => {
       if (err) {
         throw err;
@@ -28,7 +28,7 @@ router.post("/records", (req, res, next) => {
         });
       }
       return res.status(201).send({
-        msg: "added new record!"
+        msg: "added new workout!"
       });
     }
   );
