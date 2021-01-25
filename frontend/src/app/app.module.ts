@@ -17,6 +17,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 const appRoutes: Routes = [
@@ -33,7 +35,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: false }),
+    RouterModule.forRoot(appRoutes, {enableTracing: false}),
     FormsModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatTabsModule,
     MatSelectModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

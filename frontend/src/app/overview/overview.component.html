@@ -26,23 +26,47 @@
     </form>
   </div>
 
-  <br><br><br>
+  <div class="records">
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Datum</th>
-        <th>Übung</th>
-        <th>Wert</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let record of records">
-        <td>{{ record['date'] }}</td>
-        <td>{{ record['name'] }}</td>
-        <td>{{ record['result'] }} {{ record['category'] }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <h2>Alle Rekorde</h2>
+
+    <mat-form-field>
+      <mat-label>Filtern nach Text</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="z.B. Handstand" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="records" matSort>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum </th>
+          <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Übung </th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <!-- Result Column -->
+        <ng-container matColumnDef="result">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Wert </th>
+          <td mat-cell *matCellDef="let row"> {{row.result}} {{row.category}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+    </div>
+  </div>
 </div>
 

@@ -12,3 +12,21 @@ mat-form-field {
 h1 {
   text-align: center;
 }
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.records {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
