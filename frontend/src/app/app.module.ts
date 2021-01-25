@@ -7,8 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { CsvComponent } from './csv/csv.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,28 +14,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { WorkoutsComponent } from './workouts/workouts.component';
+import { MatSelectModule } from '@angular/material/select';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: MainComponent },
+  { path: "", redirectTo: "/übersicht", pathMatch: "full" },
   { path: "übersicht", component: OverviewComponent },
-  { path: "workouts", component: WorkoutsComponent },
-  { path: "csv", component: CsvComponent },
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+  { path: "**", redirectTo: "/übersicht", pathMatch: "full" }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    CsvComponent,
     OverviewComponent,
-    HeaderComponent,
-    WorkoutsComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +43,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatTabsModule,
+    MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-
 export class HttpRequestService {
+
+  exercisesUrl = 'http://localhost:3000/exercises';
   recordsUrl = 'http://localhost:3000/records';
-  workoutsUrl = 'http://localhost:3000/workouts';
 
   constructor(private http: HttpClient) {}
 
@@ -17,15 +17,17 @@ export class HttpRequestService {
     return this.http.get<any>(this.recordsUrl);
   }
 
-  postRecords(exercise, reps): void {
+  postRecords(date, exercise, result, exerciseId): void {
     this.http.post<any>(this.recordsUrl,
-      { name: exercise, reps: (reps) }).subscribe(data => {
+      { date: (date), name: (exercise), result: (result), exerciseId: (exerciseId) }).subscribe(data => {
     });
-    window.location.reload();
+    window.setTimeout(() => {
+      window.location.reload();
+    }, 1);
   }
 
-  getWorkouts(): Observable<any> {
-    return this.http.get<any>(this.workoutsUrl);
+  getExercises(): Observable<any> {
+    return this.http.get<any>(this.exercisesUrl);
   }
 
 

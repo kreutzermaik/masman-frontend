@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  links = ['home', 'übersicht', 'workouts'];
+  links = ['übersicht'];
   activeLink = this.links[0];
 
   constructor(public router: Router) { }

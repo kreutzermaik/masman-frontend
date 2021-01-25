@@ -7,6 +7,9 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+const exercises = require("./routes/exercises.js");
+app.use("/", exercises);
+
 const records = require("./routes/records.js");
 app.use("/", records);
 

@@ -3,16 +3,25 @@
     <h1>Übersicht</h1>
     <form>
       <h2>Neuer Rekord</h2>
-      <mat-form-field appearance="fill" >
-        <mat-label>Übung</mat-label>
-        <input matInput name="exercise" [(ngModel)]="exercise">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Datum</mat-label>
+        <input matInput name="date" [(ngModel)]="date">
       </mat-form-field>
-      
+
+      <mat-form-field appearance="fill">
+        <mat-label>Übung</mat-label>
+        <mat-select [(ngModel)]="selectedExercise" name="exercise">
+          <mat-option *ngFor="let exercise of exercises" [value]="exercise.name">
+            {{exercise.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Wert</mat-label>
-        <input matInput name="reps" [(ngModel)]="reps">
+        <input matInput name="result" [(ngModel)]="result">
       </mat-form-field>
- 
       <button mat-raised-button color="primary" (click)="addRecord()">Rekord hinzufügen</button>
     </form>
   </div>
@@ -22,14 +31,16 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>Datum</th>
         <th>Übung</th>
-        <th>Reps</th>
+        <th>Wert</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let record of records">
+        <td>{{ record['date'] }}</td>
         <td>{{ record['name'] }}</td>
-        <td>{{ record['reps'] }}</td>
+        <td>{{ record['result'] }} {{ record['category'] }}</td>
       </tr>
     </tbody>
   </table>

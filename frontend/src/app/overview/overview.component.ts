@@ -8,22 +8,30 @@ import { HttpRequestService } from 'src/app/services/http-service/http-request.s
 })
 export class OverviewComponent implements OnInit {
 
-  exercise: string
-  reps: string
-  records: ""
+  exercises: string;
+  date: string;
+  selectedExercise: string;
+  exercise: string;
+  result: string;
+  records: string;
+  exerciseId: 0;
 
   constructor(public http: HttpRequestService) { }
 
   ngOnInit(): void {
 
-    this.http.getRecords().subscribe(data=>{
+    this.http.getRecords().subscribe(data => {
       this.records = data;
+    });
+
+    this.http.getExercises().subscribe(data => {
+      this.exercises = data;
     });
 
   }
 
   addRecord(): void {
-    this.http.postRecords(this.exercise, this.reps);
+    this.http.postRecords(this.date, this.selectedExercise, this.result, this.exerciseId);
   }
 
 }
