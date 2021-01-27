@@ -27,6 +27,7 @@ router.post("/records", (req, res, next) => {
             });
         }
 
+
         getExerciseId(function(exerciseId) {
             db.query(
                 `INSERT INTO records (date, name, result, exerciseId) VALUES ('${req.body.date}', '${req.body.name}', '${req.body.result}', '${exerciseId[0].id}')`,
@@ -43,10 +44,6 @@ router.post("/records", (req, res, next) => {
                 }
             );
         });
-
-
-
-
 })
 
 module.exports = router;

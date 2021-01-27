@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,21 +17,26 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {MatTableModule} from "@angular/material/table";
-import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/übersicht", pathMatch: "full" },
-  { path: "übersicht", component: OverviewComponent },
-  { path: "**", redirectTo: "/übersicht", pathMatch: "full" }
+  { path: '', redirectTo: '/übersicht', pathMatch: 'full' },
+  { path: 'übersicht', component: OverviewComponent },
+  { path: '**', redirectTo: '/übersicht', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,10 @@ const appRoutes: Routes = [
     MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

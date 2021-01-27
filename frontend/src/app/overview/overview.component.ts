@@ -3,6 +3,8 @@ import { HttpRequestService } from 'src/app/services/http-service/http-request.s
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogComponent} from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-overview',
@@ -11,35 +13,30 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class OverviewComponent implements OnInit {
 
-  exercises: string;
-  date: string;
-  selectedExercise: string;
-  exercise: string;
-  result: string;
   records: MatTableDataSource<any>;
-  exerciseId: 0;
   displayedColumns: string[] = ['date', 'name', 'result'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(public http: HttpRequestService) {
+  constructor(public http: HttpRequestService, public dialog: MatDialog) {
     this.http.getRecords().subscribe(data => {
       this.records = new MatTableDataSource(data);
       this.records.paginator = this.paginator;
       this.records.sort = this.sort;
-    });
+    }, error => console.log('ERROR'));
   }
 
   ngOnInit(): void {
-    this.http.getExercises().subscribe(data => {
-      this.exercises = data;
-    });
   }
 
-  addRecord(): void {
-    this.http.postRecords(this.date, this.selectedExercise, this.result, this.exerciseId);
+  addRecordDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   applyFilter(event: Event) {

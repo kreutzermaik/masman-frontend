@@ -20,7 +20,7 @@ export class HttpRequestService {
   postRecords(date, exercise, result, exerciseId): void {
     this.http.post<any>(this.recordsUrl,
       { date: (date), name: (exercise), result: (result), exerciseId: (exerciseId) }).subscribe(data => {
-    });
+    }, error => console.log('Rekord konnte nicht hinzugefügt werden.'));
     window.setTimeout(() => {
       window.location.reload();
     }, 1);

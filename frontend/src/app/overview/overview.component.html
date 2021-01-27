@@ -1,35 +1,15 @@
 <div class="container">
-  <div class="row">
-    <h1>Übersicht</h1>
-    <form>
-      <h2>Neuer Rekord</h2>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Datum</mat-label>
-        <input matInput name="date" [(ngModel)]="date">
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Übung</mat-label>
-        <mat-select [(ngModel)]="selectedExercise" name="exercise">
-          <mat-option *ngFor="let exercise of exercises" [value]="exercise.name">
-            {{exercise.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Wert</mat-label>
-        <input matInput name="result" [(ngModel)]="result">
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addRecord()">Rekord hinzufügen</button>
-    </form>
-  </div>
-
+  <h1>Übersicht</h1>
   <div class="records">
 
-    <h2>Alle Rekorde</h2>
-
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Alle Rekorde</h2>
+      </div>
+      <div class="col-sm-6">
+        <button class="add_record_btn" color="warn" mat-flat-button (click)="addRecordDialog()">Neuen Rekord hinzufügen</button>
+      </div>
+    </div>
     <mat-form-field>
       <mat-label>Filtern nach Text</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="z.B. Handstand" #input>
@@ -41,7 +21,7 @@
         <!-- Date Column -->
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum </th>
-          <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+          <td mat-cell *matCellDef="let row">{{row.date}}</td>
         </ng-container>
 
         <!-- Name Column -->
@@ -68,5 +48,6 @@
       <mat-paginator [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
     </div>
   </div>
+
 </div>
 
