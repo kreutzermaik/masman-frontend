@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from '../../_services/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,24 +10,16 @@ export class HttpRequestService {
 
   exercisesUrl = 'http://localhost:3000/exercises';
   recordsUrl = 'http://localhost:3000/records';
-  username: string;
-  isLoggedIn = false;
 
-  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) {}
+  constructor(private http: HttpClient) {}
 
   getRecords(): Observable<any> {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
-
-    if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.username = user.username;
-    }
-    return this.http.get<any>(this.recordsUrl, {params: {username: this.username}});
+    return this.http.get<any>(this.recordsUrl);
   }
 
-  postRecords(date, exercise, result, exerciseId, username): void {
+  postRecords(date, exercise, result, exerciseId): void {
     this.http.post<any>(this.recordsUrl,
-      { date: (date), name: (exercise), result: (result), exerciseId: (exerciseId), username: (username) }).subscribe(data => {
+      { date: (date), name: (exercise), result: (result), exerciseId: (exerciseId) }).subscribe(data => {
     }, error => console.log('Rekord konnte nicht hinzugefügt werden.'));
     window.setTimeout(() => {
       window.location.reload();

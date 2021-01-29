@@ -23,18 +23,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/übersicht', pathMatch: 'full' },
   { path: 'übersicht', component: OverviewComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: '**', redirectTo: '/', pathMatch: 'full' }
+  { path: '**', redirectTo: '/übersicht', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -42,10 +36,7 @@ const appRoutes: Routes = [
     AppComponent,
     OverviewComponent,
     HeaderComponent,
-    DialogComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
