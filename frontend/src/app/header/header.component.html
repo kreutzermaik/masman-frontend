@@ -1,5 +1,27 @@
-<nav mat-tab-nav-bar mat-align-tabs="center">
-  <a mat-tab-link *ngFor="let link of links"
-     (click)="activeLink = link; home(link)"
-     [active]="activeLink == link"> {{link}} </a>
-</nav>
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Masman</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/übersicht" class="nav-link" *ngIf="isLoggedIn" routerLink="übersicht">Übersicht </a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Registrieren</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">Profil</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>

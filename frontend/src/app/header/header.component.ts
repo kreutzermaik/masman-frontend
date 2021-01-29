@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +9,27 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  links = ['übersicht'];
-  activeLink = this.links[0];
+  private roles: string[];
+  isLoggedIn = false;
+  username: string;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.username = user.username;
+    }
   }
 
-  home(link): void {
-    let url = "/" + link;
-    this.router.navigateByUrl(url);
+
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 
 }
