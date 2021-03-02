@@ -9,8 +9,8 @@ import { TokenStorageService } from '../../_services/token-storage.service';
 
 export class HttpRequestService {
 
-  exercisesUrl = 'http://localhost:3000/exercises';
-  recordsUrl = 'http://localhost:3000/records';
+  exercisesUrl = 'http://85.214.121.36:3000/exercises';
+  recordsUrl = 'http://85.214.121.36:3000/records';
   username: string;
   isLoggedIn = false;
 

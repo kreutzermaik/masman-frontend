@@ -1,4 +1,4 @@
-INSERT INTO masman.exercises (name) VALUES ('L-Sit');
-INSERT INTO masman.exercises (name) VALUES ('Handstand');
-INSERT INTO masman.exercises (name) VALUES ('Muscle Up');
-INSERT INTO masman.exercises (name) VALUES ('Ring Muscle Up');
+INSERT INTO masman.exercises (id, name, category) VALUES (1, 'L-Sit', 'Sekunden');
+INSERT INTO masman.exercises (id, name, category) VALUES (2, 'Handstand', 'Sekunden');
+INSERT INTO masman.exercises (id, name, category) VALUES (3, 'Muscle Up', 'Wiederholungen');
+INSERT INTO masman.exercises (id, name, category) VALUES (4, 'Ring Muscle Up', 'Wiederholungen');
