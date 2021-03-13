@@ -7,7 +7,7 @@
         <h2>Alle Rekorde</h2>
       </div>
       <div class="col-sm-6">
-        <button class="add_record_btn" color="warn" mat-flat-button (click)="addRecordDialog()">Neuen Rekord hinzufügen</button>
+        <button class="add_record_btn" mat-flat-button (click)="addRecordDialog()">Neuen Rekord hinzufügen</button>
       </div>
     </div>
     <mat-form-field>
@@ -18,25 +18,22 @@
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="records" matSort>
 
-        <!-- Date Column -->
         <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum </th>
+          <th mat-header-cell class="header-cell" *matHeaderCellDef mat-sort-header> Datum </th>
           <td mat-cell *matCellDef="let row">{{row.date}}</td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Übung </th>
+          <th mat-header-cell class="header-cell" *matHeaderCellDef mat-sort-header> Übung </th>
           <td mat-cell *matCellDef="let row"> {{row.name}} </td>
         </ng-container>
 
-        <!-- Result Column -->
         <ng-container matColumnDef="result">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Wert </th>
+          <th mat-header-cell class="header-cell" *matHeaderCellDef mat-sort-header> Wert </th>
           <td mat-cell *matCellDef="let row"> {{row.result}} {{row.category}} </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row class="header-cell" *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
         <!-- Row shown when there is no matching data. -->

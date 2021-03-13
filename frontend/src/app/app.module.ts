@@ -26,6 +26,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatIconModule } from '@angular/material/icon';
+import { PlaygroundComponent } from './playground/playground.component';
 
 
 const appRoutes: Routes = [
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'playground', component: PlaygroundComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
@@ -46,6 +49,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    PlaygroundComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
