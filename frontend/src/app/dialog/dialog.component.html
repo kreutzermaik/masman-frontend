@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Rekord hinzufügen</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Datum</mat-label>
+        <input matInput name="date" [(ngModel)]="date" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Übung</mat-label>
+        <mat-select [(ngModel)]="selectedExercise" name="exercise">
+          <mat-option *ngFor="let exercise of exercises" [value]="exercise.name">
+            {{exercise.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Wert</mat-label>
+        <input matInput name="result" [(ngModel)]="result">
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button mat-button [mat-dialog-close]="true" mat-flat-button color="warn" (click)="addRecord()">Rekord hinzufügen</button>
+</mat-dialog-actions>
