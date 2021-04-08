@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpRequestService} from '../services/http-service/http-request.service';
-import { TokenStorageService } from '../_services/token-storage.service';
+import {HttpRequestService} from '../../services/http-service/http-request.service';
+import { TokenStorageService } from '../../services/token-storage-service/token-storage.service';
 
 @Component({
   selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css']
+  templateUrl: './add-record-dialog.component.html',
+  styleUrls: ['./add-record-dialog.component.scss']
 })
-export class DialogComponent implements OnInit {
+export class AddRecordDialogComponent implements OnInit {
 
   exercises: string;
   date: string;
