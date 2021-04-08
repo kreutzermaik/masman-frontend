@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpRequestService} from '../../services/http-service/http-request.service';
 import { TokenStorageService } from '../../services/token-storage-service/token-storage.service';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-dialog',
@@ -15,6 +16,19 @@ export class AddRecordDialogComponent implements OnInit {
   result: string;
   username: string;
   isLoggedIn = false;
+
+  // Validators
+  dateFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  exerciseFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  valueFormControl = new FormControl('', [
+    Validators.required,
+  ]);
 
   constructor(public http: HttpRequestService, private tokenStorageService: TokenStorageService) { }
 

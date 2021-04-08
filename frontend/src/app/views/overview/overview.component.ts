@@ -4,12 +4,12 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogComponent} from '../dialog/dialog.component';
+import {AddRecordDialogComponent} from '../../components/add-record-dialog/add-record-dialog.component';
 
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css']
+  styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
 
@@ -32,7 +32,7 @@ export class OverviewComponent implements OnInit {
   }
 
   addRecordDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent);
+    const dialogRef = this.dialog.open(AddRecordDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

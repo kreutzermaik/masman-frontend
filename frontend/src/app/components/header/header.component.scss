@@ -3,8 +3,8 @@ a {
 }
 
 .bg-dark {
-  background-color: #120E43 !important;
-  border-bottom: 5px solid #BF3312;
+  background-color: var(--darkBlue) !important;
+  border-bottom: 5px solid var(--highlight);
 }
 
 

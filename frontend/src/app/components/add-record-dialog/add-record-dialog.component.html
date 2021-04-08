@@ -5,9 +5,12 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Datum</mat-label>
-        <input matInput name="date" [(ngModel)]="date" [matDatepicker]="picker">
+        <input matInput name="date" [(ngModel)]="date" [matDatepicker]="picker" [formControl]="dateFormControl">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="dateFormControl.hasError('required')">
+          Datum ist erforderlich
+        </mat-error>
       </mat-form-field>
     </div>
 
@@ -15,16 +18,22 @@
       <mat-form-field appearance="fill">
         <mat-label>Übung</mat-label>
         <mat-select [(ngModel)]="selectedExercise" name="exercise">
-          <mat-option *ngFor="let exercise of exercises" [value]="exercise['name']">
+          <mat-option *ngFor="let exercise of exercises" [value]="exercise['name']" [formControl]="exerciseFormControl">
             {{exercise['name']}}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="exerciseFormControl.hasError('required')">
+          Übung ist erforderlich
+        </mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Wert</mat-label>
-        <input matInput name="result" [(ngModel)]="result">
+        <input matInput name="result" [(ngModel)]="result" [formControl]="valueFormControl">
+        <mat-error *ngIf="valueFormControl.hasError('required')">
+          Wert ist erforderlich
+        </mat-error>
       </mat-form-field>
     </div>
   </form>
