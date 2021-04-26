@@ -1,9 +1,14 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Masman</a>
+    <a href="#" class="navbar-brand">
+       Masman
+    </a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/übersicht" class="nav-link" *ngIf="isLoggedIn" routerLink="übersicht">Übersicht </a>
+      </li>
+      <li class="nav-item">
+        <a href="/nutrition" class="nav-link" *ngIf="isLoggedIn" routerLink="nutrition">Rezepte </a>
       </li>
     </ul>
 
@@ -18,10 +23,13 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">Profil</a>
+        <a href="/profile" class="nav-link" routerLink="profile">
+          <mat-icon aria-hidden="false" aria-label="profile icon">person</mat-icon>
+        </a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">Logout</a>
+        <a href class="nav-link logout" (click)="logout()">Logout</a>
       </li>
     </ul>
   </nav>
+</div>

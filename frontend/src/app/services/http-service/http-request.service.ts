@@ -11,6 +11,7 @@ export class HttpRequestService {
 
   exercisesUrl = 'http://localhost:3000/exercises';
   recordsUrl = 'http://localhost:3000/records';
+  nutritionUrl = 'http://localhost:8080/api/nutrition';
   username: string;
   isLoggedIn = false;
 
@@ -37,6 +38,10 @@ export class HttpRequestService {
 
   getExercises(): Observable<any> {
     return this.http.get<any>(this.exercisesUrl);
+  }
+
+  getNutrition(): Observable<any> {
+    return this.http.get<any>(this.nutritionUrl);
   }
 
 

@@ -13,6 +13,8 @@ import { AddRecordDialogComponent } from './components/add-record-dialog/add-rec
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { NutritionComponent } from './views/nutrition/nutrition.component';
+
 
 
 @NgModule({
@@ -24,16 +26,17 @@ import { ProfileComponent } from './views/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    NutritionComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AngularMaterialModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AngularMaterialModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
