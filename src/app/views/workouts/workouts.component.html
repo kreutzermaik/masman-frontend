@@ -1,0 +1,19 @@
+<div class="container">
+
+<!--  <div *ngFor="let workout of workouts" class="workout-select">
+    <h1>
+      {{ workout[0][0].name }}
+    </h1>
+    <div *ngFor="let workoutDay of workout">
+      {{ workoutDay[0].name }}
+    </div>
+  </div>-->
+
+  <div *ngFor="let workout of workouts;">
+    <h1>
+      {{ workout[1][1].name }}
+    </h1>
+      {{ workout | json }}
+  </div>
+
+</div>
