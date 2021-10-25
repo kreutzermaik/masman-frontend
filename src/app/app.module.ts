@@ -9,14 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './views/overview/overview.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AddRecordDialogComponent } from './components/add-record-dialog/add-record-dialog.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import { NutritionComponent } from './views/nutrition/nutrition.component';
-import { WorkoutsComponent } from './views/workouts/workouts.component';
-import { PunitComponent } from './components/punit/punit.component';
-import {PunitService} from './services/punit.service';
+import { GoogleLoginComponent } from './components/auth/google-login/google-login.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { CreatePlanDialogComponent } from './components/dialogs/create/create-plan-dialog/create-plan-dialog.component';
 
 
 
@@ -25,13 +23,9 @@ import {PunitService} from './services/punit.service';
     AppComponent,
     OverviewComponent,
     HeaderComponent,
-    AddRecordDialogComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    NutritionComponent,
-    WorkoutsComponent,
-    PunitComponent,
+    GoogleLoginComponent,
+    CalendarComponent,
+    CreatePlanDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -41,8 +35,10 @@ import {PunitService} from './services/punit.service';
         BrowserAnimationsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+        MatCheckboxModule,
     ],
-  providers: [PunitService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

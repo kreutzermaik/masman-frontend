@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Wochenpläne</h1>
+
+  <div>
+    <button mat-button (click)="openCreatePlanDialog()">Kategorie hinzufügen</button> <br><br>
+
+    <mat-form-field>
+      <mat-select placeholder="Kategorie auswählen..." name="category" [(value)]="selectedCategory" (selectionChange)="fetchCheckedDays($event.value)">
+        <mat-option *ngFor="let plan of plans" [value]="plan.category">{{plan.category}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="KW auswählen..." name="kw" [(value)]="selectedKw" (selectionChange)="updateWeekView($event.value)">
+        <mat-option *ngFor="let week of calendarWeekList; let i = index;" [value]="i + 1">{{i + 1}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="updateCheckboxes()">Aktualisieren</button>
+
+    <br><br>
+    <p><strong>Kategorie: </strong> {{selectedCategory}}</p>
+    <p><strong>Kalenderwoche: </strong> {{calendarWeek}}</p>
+  </div>
+
+  <div class="weeklyList">
+    <mat-grid-list cols="7" rowHeight="1:1">
+      <mat-grid-tile>Mo</mat-grid-tile>
+      <mat-grid-tile>Di</mat-grid-tile>
+      <mat-grid-tile>Mi</mat-grid-tile>
+      <mat-grid-tile>Do</mat-grid-tile>
+      <mat-grid-tile>Fr</mat-grid-tile>
+      <mat-grid-tile>Sa</mat-grid-tile>
+      <mat-grid-tile>So</mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="7" rowHeight="1:1"class="list-content">
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedMo" (change)="onCheckboxChange($event, 0)"></mat-checkbox></mat-grid-tile>
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedDi" (change)="onCheckboxChange($event, 1)"></mat-checkbox></mat-grid-tile>
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedMi" (change)="onCheckboxChange($event, 2)"></mat-checkbox></mat-grid-tile>
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedDo" (change)="onCheckboxChange($event, 3)"></mat-checkbox></mat-grid-tile>
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedFr" (change)="onCheckboxChange($event, 4)"></mat-checkbox></mat-grid-tile>
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedSa" (change)="onCheckboxChange($event, 5)"></mat-checkbox></mat-grid-tile>
+      <mat-grid-tile><mat-checkbox class="checkbox" [(ngModel)]="checkedSo" (change)="onCheckboxChange($event, 6)"></mat-checkbox></mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+</div>

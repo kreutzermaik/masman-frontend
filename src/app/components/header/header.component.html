@@ -1,35 +1,15 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">
-       Masman
-    </a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/übersicht" class="nav-link" *ngIf="isLoggedIn" routerLink="übersicht">Übersicht </a>
+    <button (click)="navigateToOverview()" mat-button><a class="navbar-brand"> Masman </a></button>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button (click)="logout()" mat-button><a class="nav-link">Logout</a></button>
       </li>
-      <li class="nav-item">
-        <a href="/nutrition" class="nav-link" *ngIf="isLoggedIn" routerLink="nutrition">Rezepte </a>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <button (click)="navigateToLogin()" mat-button><a class="nav-link">Login</a></button>
       </li>
     </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Registrieren</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">
-          <mat-icon aria-hidden="false" aria-label="profile icon">person</mat-icon>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link logout" (click)="logout()">Logout</a>
-      </li>
-    </ul>
   </nav>
 </div>

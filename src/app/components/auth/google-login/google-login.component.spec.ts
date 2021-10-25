@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddRecordDialogComponent } from './add-record-dialog.component';
+import { GoogleLoginComponent } from './google-login.component';
 
-describe('DialogComponent', () => {
-  let component: AddRecordDialogComponent;
-  let fixture: ComponentFixture<AddRecordDialogComponent>;
+describe('GoogleLoginComponent', () => {
+  let component: GoogleLoginComponent;
+  let fixture: ComponentFixture<GoogleLoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddRecordDialogComponent ]
+      declarations: [ GoogleLoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddRecordDialogComponent);
+    fixture = TestBed.createComponent(GoogleLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

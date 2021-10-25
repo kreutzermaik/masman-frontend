@@ -1,0 +1,55 @@
+.container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 75%;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  background: var(--highlight);
+  color: #fff;
+}
+
+.mobile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px solid var(--darkBlue);
+  border-radius: 5px;
+  padding: 15px;
+  background: var(--lightBlue);
+  color: #fff;
+}
+
+mat-form-field {
+  margin-right: 15px;
+}
+
+mat-grid-tile {
+  background: var(--darkBlue);
+  color: #fff;
+}
+
+.list-content mat-grid-tile {
+  background: var(--lightBlue) !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: var(--highlight) !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: var(--highlight);
+}
+
+@media only screen and (max-width: 800px) {
+  h1 {
+    margin-bottom: 30px;
+  }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenStorageService } from '../../services/token-storage-service/token-storage.service';
+import {GoogleLoginComponent} from '../auth/google-login/google-login.component';
 
 @Component({
   selector: 'app-header',
@@ -9,27 +9,30 @@ import { TokenStorageService } from '../../services/token-storage-service/token-
 })
 export class HeaderComponent implements OnInit {
 
-  private roles: string[];
-  isLoggedIn = false;
-  username: string;
+  isLoggedIn;
+  currentUser;
 
-  constructor(public router: Router, private tokenStorageService: TokenStorageService) { }
+  constructor(public router: Router) { }
 
-  ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
-
-    if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
-
-      this.username = user.username;
+  async ngOnInit(): Promise<void> {
+    this.currentUser = await GoogleLoginComponent.getCurrentUser();
+    if (this.currentUser) {
+      this.isLoggedIn = true;
     }
   }
 
+  async logout(): Promise<void> {
+    this.isLoggedIn = false;
+    await GoogleLoginComponent.logout();
+    this.navigateToLogin();
+  }
 
-  logout(): void {
-    this.tokenStorageService.signOut();
-    window.location.reload();
+  navigateToLogin(): void {
+    this.router.navigateByUrl('/login');
+  }
+
+  navigateToOverview(): void {
+    this.router.navigateByUrl('/übersicht');
   }
 
 }

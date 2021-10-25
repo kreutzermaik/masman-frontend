@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { TokenStorageService } from '../token-storage-service/token-storage.service';
+import {GoogleLoginComponent} from '../../components/auth/google-login/google-login.component';
+import {environment} from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,45 +10,50 @@ import { TokenStorageService } from '../token-storage-service/token-storage.serv
 
 export class HttpRequestService {
 
-  exercisesUrl = 'http://localhost:8080/api/exercises';
-  recordsUrl = 'http://localhost:8080/api/records';
-  nutritionUrl = 'http://localhost:8080/api/nutrition';
-  workoutUrl = 'http://localhost:8080/api/workouts/1/T17-1';
-  username: string;
-  isLoggedIn = false;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) {}
-
-  getRecords(): Observable<any> {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
-
-    if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.username = user.username;
-    }
-    return this.http.get<any>(this.recordsUrl, {params: {username: this.username}});
+  async getCurrentUser() {
+    return await GoogleLoginComponent.getCurrentUser();
   }
 
-  postRecords(date, exercise, result, exerciseId, username): void {
-    this.http.post<any>(this.recordsUrl,
-      { date: (date), name: (exercise), result: (result), exerciseId: (exerciseId), username: (username) }).subscribe(data => {
-    }, error => console.log('Rekord konnte nicht hinzugefügt werden.'));
-    window.setTimeout(() => {
-      window.location.reload();
-    }, 1);
+  getPlans() {
+    return this.getCurrentUser().then(user => {
+      return this.http.get<any>(environment.apiURL + 'plans/' + user.getId());
+    });
   }
 
-  getExercises(): Observable<any> {
-    return this.http.get<any>(this.exercisesUrl);
+  postPlan(category): void {
+    this.getCurrentUser().then(user => {
+      this.http.post<any>(environment.apiURL + 'plans/' + user.getId(),
+        {
+          category: (category),
+          userId: user.getId(),
+        }).subscribe(data => {
+      }, error => console.log('Plan konnte nicht hinzugefügt werden.'));
+      window.setTimeout(() => {
+        window.location.reload();
+      }, 1);
+    });
   }
 
-  getNutrition(): Observable<any> {
-    return this.http.get<any>(this.nutritionUrl);
+  getCheckedDays(category) {
+    return this.getCurrentUser().then(user => {
+      return this.http.get<any>(environment.apiURL + 'plan/' + category + '/' + user.getId());
+    });
   }
 
-  getWorkouts(): Observable<any> {
-    return this.http.get<any>(this.workoutUrl);
+  postCheckedDay(date, category, kw, done): void {
+    this.getCurrentUser().then(user => {
+      this.http.post<any>(environment.apiURL + 'plan/' + category + '/' + user.getId(),
+        {
+          date: (date),
+          category: (category),
+          kw: (kw),
+          done: (done),
+          userId: user.getId(),
+        }).subscribe(data => {
+      }, error => console.log('Checked Day konnte nicht hinzugefügt werden.'));
+    });
   }
-
 
 }
