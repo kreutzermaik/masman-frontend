@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpRequestService} from '../../services/http-service/http-request.service';
 import { TokenStorageService } from '../../services/token-storage-service/token-storage.service';
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',

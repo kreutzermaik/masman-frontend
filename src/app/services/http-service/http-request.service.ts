@@ -9,10 +9,10 @@ import { TokenStorageService } from '../token-storage-service/token-storage.serv
 
 export class HttpRequestService {
 
-  exercisesUrl = 'http://localhost:3000/exercises';
-  recordsUrl = 'http://localhost:3000/records';
+  exercisesUrl = 'http://localhost:8080/api/exercises';
+  recordsUrl = 'http://localhost:8080/api/records';
   nutritionUrl = 'http://localhost:8080/api/nutrition';
-  workoutUrl = 'http://localhost:8080/api/csv';
+  workoutUrl = 'http://localhost:8080/api/workouts/1/T17-1';
   username: string;
   isLoggedIn = false;
 

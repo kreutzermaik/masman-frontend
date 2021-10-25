@@ -14,17 +14,12 @@ export class WorkoutsComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.getWorkouts().subscribe(data => {
-
-      this.workouts.push(data);
-
-      data.forEach((workout) => {
-        workout.find(day => {
-        });
-      });
-
-
+      this.workouts = data;
     });
+  }
 
+  startWorkout(): void {
+    alert('start');
   }
 
 }

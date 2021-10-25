@@ -15,6 +15,8 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { ProfileComponent } from './views/profile/profile.component';
 import { NutritionComponent } from './views/nutrition/nutrition.component';
 import { WorkoutsComponent } from './views/workouts/workouts.component';
+import { PunitComponent } from './components/punit/punit.component';
+import {PunitService} from './services/punit.service';
 
 
 
@@ -29,6 +31,7 @@ import { WorkoutsComponent } from './views/workouts/workouts.component';
     ProfileComponent,
     NutritionComponent,
     WorkoutsComponent,
+    PunitComponent,
   ],
     imports: [
         BrowserModule,
@@ -39,7 +42,7 @@ import { WorkoutsComponent } from './views/workouts/workouts.component';
         HttpClientModule,
         ReactiveFormsModule,
     ],
-  providers: [],
+  providers: [PunitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

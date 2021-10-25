@@ -1,19 +1,28 @@
 <div class="container">
 
-<!--  <div *ngFor="let workout of workouts" class="workout-select">
-    <h1>
-      {{ workout[0][0].name }}
-    </h1>
-    <div *ngFor="let workoutDay of workout">
-      {{ workoutDay[0].name }}
-    </div>
-  </div>-->
+  <div class="workout-card">
 
-  <div *ngFor="let workout of workouts;">
-    <h1>
-      {{ workout[1][1].name }}
-    </h1>
-      {{ workout | json }}
+    <div>
+      <h2 class="header"> Workout {{ workouts[0]['workout'] }} </h2>
+    </div>
+
+    <table class="table">
+      <thead>
+        <th> Übung </th>
+        <th> Reps / Time </th>
+        <th> Sets </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workout of workouts">
+          <td> {{  workout['name']  }} </td>
+          <td> {{  workout['intensity']  }} </td>
+          <td> 4 </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button mat-button class="startWorkoutBtn" (click)="startWorkout()"> Starten </button>
+
   </div>
 
 </div>
