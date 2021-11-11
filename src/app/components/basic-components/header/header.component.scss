@@ -1,0 +1,19 @@
+a {
+  text-transform: uppercase;
+}
+
+.bg-dark {
+  background-color: var(--darkBlue) !important;
+  border-bottom: 5px solid var(--highlight);
+}
+
+a.logout.nav-link {
+  margin-top: 3px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  a {
+    font-size: 13px;
+  }
+}
+

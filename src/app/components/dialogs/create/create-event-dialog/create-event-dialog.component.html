@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Event hinzufügen</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Datum auswählen</mat-label>
+        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="date" autocomplete="off">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Event eintragen (z.B. Dehnen)</mat-label>
+        <input matInput name="event" [(ngModel)]="event">
+      </mat-form-field>
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <div *ngIf="auth.user$ | async as user">
+    <button mat-button mat-dialog-close color="primary">Abbrechen</button>
+    <button mat-button mat-flat-button color="primary" [mat-dialog-close]="true"
+            (click)="calendar.updateCalendarData(user.uid, event, date)">Speichern</button>
+  </div>
+</mat-dialog-actions>

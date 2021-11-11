@@ -1,0 +1,63 @@
+<mat-toolbar fxLayout="row" color="primary">
+
+  <span fxFlex>Masman</span>
+
+  <button mat-button fxHide.xs (click)="navigateToUrl('overview')">
+    <mat-icon class="mr" (click)="navigateToUrl('overview')">dashboard</mat-icon>
+    Übersicht
+  </button>
+  <button mat-button fxHide.xs (click)="navigateToUrl('workouts')">
+    <mat-icon class="mr" (click)="navigateToUrl('workouts')">fitness_center</mat-icon>
+    Workouts
+  </button>
+
+  <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
+
+  <ng-template #guest>
+    <button mat-button fxHide.xs (click)="navigateToUrl('login')">
+      <mat-icon class="mr" (click)="navigateToUrl('login')">login</mat-icon>
+      Login
+    </button>
+  </ng-template>
+
+  <ng-template #authenticated>
+    <button mat-button fxHide.xs (click)="navigateToUrl('logout')">
+      <mat-icon class="mr" (click)="navigateToUrl('logout')">logout</mat-icon>
+      Logout
+    </button>
+  </ng-template>
+
+  <button mat-icon-button [matMenuTriggerFor]="dropMenu" fxHide fxShow.xs>
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <!--Mobile Menu-->
+  <mat-menu #dropMenu="matMenu">
+    <ng-container>
+      <button mat-menu-item (click)="navigateToUrl('overview')">
+        <mat-icon class="mr" (click)="navigateToUrl('overview')">dashboard</mat-icon>
+        Übersicht
+      </button>
+      <button mat-menu-item (click)="navigateToUrl('workouts')">
+        <mat-icon class="mr" (click)="navigateToUrl('workouts')">fitness_center</mat-icon>
+        Workouts
+      </button>
+
+      <div *ngIf="auth.user$ | async; then authenticatedMobile else guestMobile"></div>
+      <ng-template #guestMobile>
+        <button mat-menu-item (click)="navigateToUrl('login')">
+          <mat-icon class="mr" (click)="navigateToUrl('login')">login</mat-icon>
+          Login
+        </button>
+      </ng-template>
+      <ng-template #authenticatedMobile>
+        <button mat-menu-item (click)="navigateToUrl('logout')">
+          <mat-icon class="mr" (click)="navigateToUrl('logout')">logout</mat-icon>
+          Logout
+        </button>
+      </ng-template>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-menu>
+
+</mat-toolbar>

@@ -15,6 +15,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatDividerModule} from "@angular/material/divider";
+
 
 const materialModules = [
   MatDialogModule,
@@ -31,7 +34,9 @@ const materialModules = [
   MatPaginatorModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatCardModule
+  MatCardModule,
+  MatMenuModule,
+  MatDividerModule
 ];
 
 

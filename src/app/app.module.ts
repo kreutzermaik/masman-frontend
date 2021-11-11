@@ -1,48 +1,59 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './modules/app-routing.module';
-import { AngularMaterialModule } from './modules/angular-material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
-import { OverviewComponent } from './views/overview/overview.component';
-import { HeaderComponent } from './components/header/header.component';
-import { AddRecordDialogComponent } from './components/add-record-dialog/add-record-dialog.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+import { UserProfileComponent } from './components/basic-components/user-profile/user-profile.component';
+import { AuthGuard } from "./guards/auth.guard";
 import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import { NutritionComponent } from './views/nutrition/nutrition.component';
-import { WorkoutsComponent } from './views/workouts/workouts.component';
-import { PunitComponent } from './components/punit/punit.component';
-import {PunitService} from './services/punit.service';
+import { AngularMaterialModule } from './modules/angular-material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/basic-components/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CalendarComponent } from './components/basic-components/calendar/calendar.component';
+import { OverviewComponent } from './views/overview/overview.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { CreateEventDialogComponent } from './components/dialogs/create/create-event-dialog/create-event-dialog.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { WorkoutsComponent } from './components/basic-components/workouts/workouts.component';
 
-
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+]);
 
 @NgModule({
   declarations: [
     AppComponent,
-    OverviewComponent,
-    HeaderComponent,
-    AddRecordDialogComponent,
+    UserProfileComponent,
     LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    NutritionComponent,
-    WorkoutsComponent,
-    PunitComponent,
+    HeaderComponent,
+    CalendarComponent,
+    OverviewComponent,
+    CreateEventDialogComponent,
+    WorkoutsComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        AngularMaterialModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-    ],
-  providers: [PunitService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularMaterialModule,
+    NoopAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    MatDialogModule,
+    FullCalendarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    FlexLayoutModule
+  ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

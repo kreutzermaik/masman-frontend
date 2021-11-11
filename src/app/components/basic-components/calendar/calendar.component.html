@@ -1,0 +1,32 @@
+<!--<div *ngIf="auth.user$ | async; then authenticated else guest">
+  &lt;!&ndash; template will replace this div &ndash;&gt;
+</div>-->
+
+<h1> Kalender</h1>
+
+<div class="container">
+  <button mat-button mat-flat-button color="primary" (click)="openCreateEventDialog()">Event hinzufügen</button>
+  <!--  <div class="ansichten">
+      <button mat-button mat-flat-button color="warn" (click)="setCalendarToDayGrid()">Tag</button>
+      <button mat-button mat-flat-button color="warn" (click)="openCreateEventDialog()">Woche</button>
+      <button mat-button mat-flat-button color="warn" (click)="openCreateEventDialog()">Monat</button>
+    </div>-->
+</div>
+<br><br>
+
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<!--<ng-template #guest>
+  <div class="alert-container">
+    <div class="alertBox">
+      <h1>Hinweis</h1>
+      <br>
+      <p>Sie müssen eingeloggt sein, um Ihren Kalender zu sehen!</p>
+      <mat-icon>lock</mat-icon>
+      <br>
+      <button mat-button (click)="navigateToLogin()">Zum Login</button>
+    </div>
+  </div>
+</ng-template>-->
+
+

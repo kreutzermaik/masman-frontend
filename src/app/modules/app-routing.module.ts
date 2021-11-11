@@ -1,24 +1,20 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {OverviewComponent} from '../views/overview/overview.component';
-import {LoginComponent} from '../components/auth/login/login.component';
-import {RegisterComponent} from '../components/auth/register/register.component';
-import {ProfileComponent} from '../views/profile/profile.component';
-import {NutritionComponent} from '../views/nutrition/nutrition.component';
-import {WorkoutsComponent} from '../views/workouts/workouts.component';
-import {PunitComponent} from '../components/punit/punit.component';
+import { RouterModule, Routes } from '@angular/router';
+import {UserProfileComponent} from "../components/basic-components/user-profile/user-profile.component";
+import {AuthGuard} from "../guards/auth.guard";
+import {LoginComponent} from "../components/auth/login/login.component";
+import {OverviewComponent} from "../views/overview/overview.component";
+import {WorkoutsComponent} from "../components/basic-components/workouts/workouts.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'übersicht', component: OverviewComponent },
-  { path: 'nutrition', component: NutritionComponent },
+  { path: '', redirectTo: '/overview', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'overview', component: OverviewComponent },
   { path: 'workouts', component: WorkoutsComponent },
-  { path: 'punits', component: PunitComponent },
+  { path: 'profile', component: UserProfileComponent,  canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
