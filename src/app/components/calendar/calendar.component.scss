@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  max-width: 75%;
+  max-width: 100%;
 }
 
 h1 {
@@ -51,5 +51,6 @@ mat-grid-tile {
 @media only screen and (max-width: 800px) {
   h1 {
     margin-bottom: 30px;
+    max-width: 100%;
   }
 }
