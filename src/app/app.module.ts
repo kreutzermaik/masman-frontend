@@ -22,6 +22,8 @@ import { CreateEventDialogComponent } from './components/dialogs/create/create-e
 import {ServiceWorkerModule} from '@angular/service-worker';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WorkoutsComponent } from './components/basic-components/workouts/workouts.component';
+import { CreateWorkoutDialogComponent } from './components/dialogs/create/create-workout-dialog/create-workout-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -36,7 +38,8 @@ FullCalendarModule.registerPlugins([
     CalendarComponent,
     OverviewComponent,
     CreateEventDialogComponent,
-    WorkoutsComponent
+    WorkoutsComponent,
+    CreateWorkoutDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ FullCalendarModule.registerPlugins([
     MatDialogModule,
     FullCalendarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
