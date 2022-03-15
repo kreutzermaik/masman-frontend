@@ -10,10 +10,6 @@
     <mat-icon class="mr" (click)="navigateToUrl('goals')">assignment</mat-icon>
     Jahresziele
   </button>
-  <button mat-button fxHide.xs (click)="navigateToUrl('workouts')">
-    <mat-icon class="mr" (click)="navigateToUrl('workouts')">fitness_center</mat-icon>
-    Workouts
-  </button>
 
   <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
 
@@ -45,10 +41,6 @@
       <button mat-menu-item (click)="navigateToUrl('goals')">
         <mat-icon class="mr" (click)="navigateToUrl('goals')">assignment</mat-icon>
         Jahresziele
-      </button>
-      <button mat-menu-item (click)="navigateToUrl('workouts')">
-        <mat-icon class="mr" (click)="navigateToUrl('workouts')">fitness_center</mat-icon>
-        Workouts
       </button>
 
       <div *ngIf="auth.user$ | async; then authenticatedMobile else guestMobile"></div>

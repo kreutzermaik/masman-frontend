@@ -59,13 +59,14 @@ export class CalendarService {
    * @param event
    * @param date
    */
-  public updateCalendarData(user: any, event: string, date: Date) {
+  public updateCalendarData(user: any, event: string, date: any, location: string) {
     const calendarRef: AngularFirestoreDocument = this.afs.doc(`users/${user}/events/${this.generateUuidv4()}`);
 
     const data = {
       date: DateTimeUtils.formatDate(date),
-      event: event
+      event: event,
+      location: (location !== undefined) ? location : ''
     }
-    calendarRef.set(data, { merge: true }).then(() => window.location.reload());
+    calendarRef.set(data, { merge: true }).then(/*() =>*//* window.location.reload()*/);
   }
 }

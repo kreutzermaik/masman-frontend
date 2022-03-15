@@ -32,18 +32,18 @@ export class GoalsComponent implements OnInit {
     });
   }
 
-  countBlue() {
-    this.counterBlue++;
+  countBlue(vz: string) {
+    (vz === '+') ? this.counterBlue++ : this.counterBlue--;
     this.updateGoal(this.counterBlue, "Blau");
   }
 
-  countWhite() {
-    this.counterWhite++;
+  countWhite(vz: string) {
+    (vz === '+') ? this.counterWhite++ : this.counterWhite--;
     this.updateGoal(this.counterWhite, "Weiß");
   }
 
-  countOrange() {
-    this.counterOrange++;
+  countOrange(vz: string) {
+    (vz === '+') ? this.counterOrange++ : this.counterOrange--;
     this.updateGoal(this.counterOrange, "Orange");
   }
 

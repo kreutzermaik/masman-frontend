@@ -21,10 +21,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { CreateEventDialogComponent } from './components/dialogs/create/create-event-dialog/create-event-dialog.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { WorkoutsComponent } from './components/basic-components/workouts/workouts.component';
-import { CreateWorkoutDialogComponent } from './components/dialogs/create/create-workout-dialog/create-workout-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { WorkoutComponent } from './components/basic-components/workout/workout.component';
 import { GoalsComponent } from './components/basic-components/goals/goals.component';
 
 FullCalendarModule.registerPlugins([
@@ -40,9 +37,6 @@ FullCalendarModule.registerPlugins([
     CalendarComponent,
     OverviewComponent,
     CreateEventDialogComponent,
-    WorkoutsComponent,
-    CreateWorkoutDialogComponent,
-    WorkoutComponent,
     GoalsComponent
   ],
   imports: [
