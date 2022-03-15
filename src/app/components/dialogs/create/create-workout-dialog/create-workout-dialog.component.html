@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Workout hinzufügen</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Name des Workouts</mat-label>
+        <input matInput name="exercise" [(ngModel)]="name" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Kategorie (z.B. Kraft)</mat-label>
+        <input matInput name="exercise" [(ngModel)]="category" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Übung 1</mat-label>
+        <input matInput name="exercise" [(ngModel)]="exercise1" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Übung 2</mat-label>
+        <input matInput name="exercise" [(ngModel)]="exercise2" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Übung 3</mat-label>
+        <input matInput name="exercise" [(ngModel)]="exercise3" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Übung 4</mat-label>
+        <input matInput name="exercise" [(ngModel)]="exercise4" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Anzahl der Runden</mat-label>
+        <input matInput name="exercise" [(ngModel)]="rounds" autocomplete="off">
+      </mat-form-field>
+
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <div *ngIf="auth.user$ | async as user">
+    <button mat-button mat-dialog-close color="primary">Abbrechen</button>
+    <button mat-button mat-flat-button color="primary" [mat-dialog-close]="true"
+            (click)="workouts.updateWorkoutData(user.uid,
+            {name: name, category: category, exercise1: exercise1, exercise2: exercise2, exercise3: exercise3,
+            exercise4: exercise4, rounds: rounds})">Speichern</button>
+  </div>
+</mat-dialog-actions>

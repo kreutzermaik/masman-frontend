@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {CalendarOptions} from "@fullcalendar/angular";
+import { Component } from '@angular/core';
 import {AuthService} from "../../../services/auth/auth.service";
-import {CalendarService} from "../../../services/calendar/calendar.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {WorkoutService} from "../../../services/workouts/workout.service";
@@ -12,7 +10,7 @@ import {CreateWorkoutDialogComponent} from "../../dialogs/create/create-workout-
   templateUrl: './workouts.component.html',
   styleUrls: ['./workouts.component.scss']
 })
-export class WorkoutsComponent implements OnInit {
+export class WorkoutsComponent {
 
   workoutList = [];
 
@@ -20,21 +18,22 @@ export class WorkoutsComponent implements OnInit {
     this.getWorkouts();
   }
 
-  getWorkouts() {
+  getWorkouts(): void {
     this.workouts.getWorkoutsCollection().then((workouts: any) => {
       this.workoutList = workouts;
     });
-  }
-
-  ngOnInit(): void {
   }
 
   openCreateWorkoutDialog(): void {
     this.dialog.open(CreateWorkoutDialogComponent);
   }
 
-  navigateToLogin() {
+  navigateToLogin(): void {
     this.router.navigateByUrl('/login').then();
+  }
+
+  startWorkout(workoutId: any): void {
+    this.router.navigateByUrl('workouts/' + workoutId).then(() => window.location.reload());
   }
 
 }

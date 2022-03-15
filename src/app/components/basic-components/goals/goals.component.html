@@ -1,0 +1,35 @@
+<h1> Ziele für das Jahr 2022</h1>
+
+<div class="container">
+
+  <!--Jahresziele-->
+  <h2>Sportliche Ziele</h2>
+  <p>Ziele</p>
+  <p>Ziele</p>
+  <p>Ziele</p>
+  <p>Ziele</p>
+
+  <h2>Allgemeine Ziele</h2>
+  <p>Ziele</p>
+  <p>Ziele</p>
+  <p>Ziele</p>
+  <p>Ziele</p>
+
+  <div class="counterBox">
+    <div *ngIf="counterBlue !== null">
+      <span class="blue">BLAU</span>
+      <button mat-flat-button color="primary" (click)="countBlue()">+</button> {{ counterBlue }} / 100
+    </div>
+    <br>
+    <div *ngIf="counterWhite !== null">
+      <span class="white">WEIß</span>
+      <button mat-flat-button color="primary" (click)="countWhite()">+</button> {{ counterWhite }} / 100
+    </div>
+    <br>
+    <div *ngIf="counterOrange !== null">
+      <span class="orange">ORANGE</span>
+      <button mat-flat-button color="primary" (click)="countOrange()">+</button> {{ counterOrange }} / 100
+    </div>
+  </div>
+</div>
+
