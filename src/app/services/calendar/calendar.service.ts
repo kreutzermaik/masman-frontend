@@ -67,6 +67,6 @@ export class CalendarService {
       event: event,
       location: (location !== undefined) ? location : ''
     }
-    calendarRef.set(data, { merge: true }).then(/*() =>*//* window.location.reload()*/);
+    calendarRef.set(data, { merge: true }).then(() => window.location.reload());
   }
 }

@@ -23,12 +23,11 @@ export class CalendarComponent implements OnInit {
     events: [],
   };
 
-  constructor(public auth: AuthService, public calendar: CalendarService, public dialog: MatDialog, private router: Router) {
-    this.getEvents();
-    this.countBoulderVisits();
-  }
+  constructor(public auth: AuthService, public calendar: CalendarService, public dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {
+    this.getEvents();
+    this.countBoulderVisits();
   }
 
   getEvents() {
@@ -65,6 +64,7 @@ export class CalendarComponent implements OnInit {
 
   countBoulderVisits() {
     setTimeout(() => {
+      console.log(this.events)
       this.events.map((event: any) => {
         if(event.location === 'Boulder Olymp') {
           this.boulderVisitsCounterOlymp = this.boulderVisitsCounterOlymp + 1;
@@ -72,7 +72,7 @@ export class CalendarComponent implements OnInit {
           this.boulderVisitsCounterRocklands = this.boulderVisitsCounterRocklands + 1;
         }
       })
-    }, 1500)
+    }, 2000)
   }
 
   openCreateEventDialog(): void {
