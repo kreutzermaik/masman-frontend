@@ -7,7 +7,8 @@
     <mat-card class="card">
       <mat-card-header>
         <div mat-card-avatar>
-          <img src="assets/bizeps.png" alt="Bizeps" class="category-image">
+          <img src="assets/bizeps.png" alt="Bizeps" class="category-image" *ngIf="workout.category === 'Kraft'">
+          <img src="assets/sixpack.png" alt="Sixpack" class="category-image" *ngIf="workout.category === 'Stability'">
         </div>
         <mat-card-title>{{workout.name}}</mat-card-title>
         <mat-card-subtitle>

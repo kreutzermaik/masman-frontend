@@ -45,13 +45,18 @@ export class WorkoutComponent implements OnInit {
    */
   nextSet(index: number): void {
     this.index = index + 1;
-    if(this.workout.exercises[index].sets - index === 1) {
-      if(Object.keys(this.workout.exercises).length - this.exerciseIndex !== 1) {
-        this.nextExercise();
-      } else {
-        this.finishWorkout();
+
+    if(this.workout.exercises[this.exerciseIndex] !== undefined) {
+      if(this.workout.exercises[this.exerciseIndex].sets - index === 1) {
+        if(Object.keys(this.workout.exercises).length - this.exerciseIndex !== 1) {
+          this.nextExercise();
+        } else {
+          this.finishWorkout();
+        }
       }
     }
+
+
   }
 
   /**
