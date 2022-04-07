@@ -1,0 +1,32 @@
+.card {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin-bottom: 2em;
+}
+
+::ng-deep mat-chip-list {
+  display: inline-block !important;
+}
+
+::ng-deep mat-card-title {
+  text-align: center !important;
+}
+
+.activeExercise mat-chip:nth-child(1) {
+  background-color: var(--orange) !important;
+  color: #fff !important;
+}
+
+.tertiaryButton {
+  width: 50% !important;
+  margin: 0 25% !important;
+}
+
+h3 {
+  font-weight: 500;
+}

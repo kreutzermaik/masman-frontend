@@ -9,7 +9,7 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 2% !important;
+  margin-top: 5% !important;
 }
 
 .primary {
@@ -36,11 +36,15 @@ h1 {
 }
 
 .createButton {
-  width: 50%;
-  margin-right: 25% !important;
-  margin-left: 25% !important;
+  width: 55%;
+  margin-right: 22.5% !important;
+  margin-left: 22.5% !important;
   background: var(--orange);
   color: #fff;
   border-radius: 50px !important;
   text-transform: uppercase;
+}
+
+.center {
+  text-align: center;
 }

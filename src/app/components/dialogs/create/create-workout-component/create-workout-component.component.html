@@ -11,12 +11,12 @@
       <form>
         <mat-form-field appearance="fill">
           <mat-label>Workout-Name eintragen</mat-label>
-          <input matInput name="name" [(ngModel)]="name">
+          <input matInput name="name" [(ngModel)]="name" autocomplete="off">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
           <mat-label>Kategorie eintragen (z.B. Kraft)</mat-label>
-          <input matInput name="category" [(ngModel)]="category">
+          <input matInput name="category" [(ngModel)]="category" autocomplete="off">
         </mat-form-field>
 
         <div>
@@ -30,17 +30,12 @@
       <form>
         <mat-form-field appearance="fill">
           <mat-label>Übung eintragen (z.B. Pushups)</mat-label>
-          <input matInput name="category" [(ngModel)]="exerciseName">
+          <input matInput name="category" [(ngModel)]="exerciseName" autocomplete="off">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
           <mat-label>Wert eintragen (z.B. 10)</mat-label>
-          <input matInput name="category" [(ngModel)]="exerciseValue">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-          <mat-label>Gewicht eintragen (z.B. 5kg)</mat-label>
-          <input matInput name="category" [(ngModel)]="exerciseWeight">
+          <input matInput name="category" [(ngModel)]="exerciseValue" autocomplete="off">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
@@ -52,8 +47,13 @@
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
+          <mat-label>Gewicht eintragen (z.B. 5kg)</mat-label>
+          <input matInput name="category" [(ngModel)]="exerciseWeight" autocomplete="off">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
           <mat-label>Anzahl Sets (z.B. 4)</mat-label>
-          <input matInput name="sets" [(ngModel)]="exerciseSets">
+          <input matInput name="sets" [(ngModel)]="exerciseSets" autocomplete="off">
         </mat-form-field>
         <br>
         <button mat-button mat-flat-button class="tertiaryButton" (click)="addExercise()">Weitere Übung hinzufügen</button>

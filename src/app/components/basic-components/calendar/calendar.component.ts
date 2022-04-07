@@ -64,7 +64,6 @@ export class CalendarComponent implements OnInit {
 
   countBoulderVisits() {
     setTimeout(() => {
-      console.log(this.events)
       this.events.map((event: any) => {
         if(event.location === 'Boulder Olymp') {
           this.boulderVisitsCounterOlymp = this.boulderVisitsCounterOlymp + 1;

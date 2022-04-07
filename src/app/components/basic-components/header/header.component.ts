@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
         this.router.navigateByUrl('/login').then()
       });
     }
-    console.log(url)
     this.router.navigateByUrl(url).then();
   }
 }
