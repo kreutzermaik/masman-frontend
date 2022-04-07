@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {GoalService} from "../../../services/goals/goal.service";
-import {AuthService} from "../../../services/auth/auth.service";
+import {GoalService} from "../../../services/goal.service";
+import {AuthService} from "../../../services/auth.service";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {Goal} from "../../../models/goal.model";
 import DateTimeUtils from "../../../utils/DateTimeUtils";

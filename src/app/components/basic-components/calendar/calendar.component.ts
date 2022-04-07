@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../services/auth/auth.service";
-import {CalendarService} from "../../../services/calendar/calendar.service";
+import {AuthService} from "../../../services/auth.service";
+import {CalendarService} from "../../../services/calendar.service";
 import { CalendarOptions } from '@fullcalendar/angular';
 import {MatDialog} from "@angular/material/dialog";
 import {CreateEventDialogComponent} from "../../dialogs/create/create-event-dialog/create-event-dialog.component";

@@ -1,0 +1,44 @@
+::ng-deep .mat-form-field-wrapper {
+  width: 270px !important;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 5px;
+}
+
+.secondaryButton {
+  width: 270px !important;
+}
+
+mat-dialog-content {
+  max-height: 575px !important;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    margin-top: -15px;
+  }
+}
+
+button {
+  float: right !important;
+}
+
+.tertiaryButton {
+  float: initial !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: var(--orange) !important;
+}
+
+::ng-deep .mat-step-icon-state-edit {
+  background-color: var(--lightOrange) !important;
+}

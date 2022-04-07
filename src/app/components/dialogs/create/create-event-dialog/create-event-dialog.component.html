@@ -32,8 +32,8 @@
 
 <mat-dialog-actions align="end">
   <div *ngIf="auth.user$ | async as user">
-    <button mat-button mat-dialog-close color="primary">Abbrechen</button>
-    <button mat-button mat-flat-button color="primary" [mat-dialog-close]="true"
+    <button mat-button mat-dialog-close class="cancelButton">Abbrechen</button>
+    <button mat-button mat-flat-button class="primaryButton" [mat-dialog-close]="true"
             (click)="calendar.updateCalendarData(user.uid, event, date, selectedLocation)">Speichern</button>
   </div>
 </mat-dialog-actions>

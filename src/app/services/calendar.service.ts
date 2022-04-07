@@ -1,8 +1,8 @@
 import {Injectable,} from "@angular/core";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { AuthService } from "../auth/auth.service";
-import DateTimeUtils from "../../utils/DateTimeUtils";
+import { AuthService } from "./auth.service";
+import DateTimeUtils from "../utils/DateTimeUtils";
 
 
 @Injectable({ providedIn: 'root' })

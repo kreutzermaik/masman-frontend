@@ -1,0 +1,78 @@
+<div class="container">
+  <h2 mat-dialog-title>Workout hinzufügen</h2>
+  <button mat-button mat-dialog-close class="primary">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+  <mat-stepper linear #stepper>
+    <mat-step>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Workout-Name eintragen</mat-label>
+          <input matInput name="name" [(ngModel)]="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Kategorie eintragen (z.B. Kraft)</mat-label>
+          <input matInput name="category" [(ngModel)]="category">
+        </mat-form-field>
+
+        <div>
+          <button mat-button mat-flat-button class="primaryButton" matStepperNext>Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Exercises -->
+    <mat-step>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Übung eintragen (z.B. Pushups)</mat-label>
+          <input matInput name="category" [(ngModel)]="exerciseName">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Wert eintragen (z.B. 10)</mat-label>
+          <input matInput name="category" [(ngModel)]="exerciseValue">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Gewicht eintragen (z.B. 5kg)</mat-label>
+          <input matInput name="category" [(ngModel)]="exerciseWeight">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Einheit auswählen...</mat-label>
+          <mat-select [(ngModel)]="exerciseEinheit" name="location">
+            <mat-option value="Wiederholungen">Wiederholungen</mat-option>
+            <mat-option value="Sekunden">Sekunden</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Anzahl Sets (z.B. 4)</mat-label>
+          <input matInput name="sets" [(ngModel)]="exerciseSets">
+        </mat-form-field>
+        <br>
+        <button mat-button mat-flat-button class="tertiaryButton" (click)="addExercise()">Weitere Übung hinzufügen</button>
+        <br><br>
+        <div>
+          <button mat-button mat-flat-button class="primaryButton" matStepperNext (click)="addExercise()">Weiter</button>
+          <button mat-button class="cancelButton" matStepperPrevious>Zurück</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <p> Um das Workout <strong> {{ name }} </strong> zu erstellen, speichern Sie bitte ihre Eingaben!</p>
+      <div>
+        <button mat-button mat-flat-button class="primaryButton" [mat-dialog-close]="true" (click)="workout.updateWorkoutData(name, category, exercise)">Speichern</button>
+        <button mat-button class="cancelButton" matStepperPrevious>Zurück</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+</mat-dialog-content>
+

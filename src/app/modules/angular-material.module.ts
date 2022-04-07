@@ -17,6 +17,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatChipsModule} from "@angular/material/chips";
 
 
 const materialModules = [
@@ -36,7 +38,9 @@ const materialModules = [
   MatNativeDateModule,
   MatCardModule,
   MatMenuModule,
-  MatDividerModule
+  MatDividerModule,
+  MatStepperModule,
+  MatChipsModule
 ];
 
 

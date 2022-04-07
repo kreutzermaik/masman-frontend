@@ -1,0 +1,35 @@
+<h1> Workouts </h1>
+<button mat-button mat-flat-button class="createButton" (click)="openCreateWorkoutDialog()">Workout erstellen</button>
+
+<div *ngFor="let workout of workouts" class="container">
+
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="category-image"></div>
+      <mat-card-title>{{workout.name}}</mat-card-title>
+      <mat-card-subtitle>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip>{{workout.category}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let exercise of workout['exercises']">
+        <p>
+          {{ exercise.value + " " + exercise['einheit'] + " " + exercise.name }}
+        </p>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button mat-flat-button class="secondaryButton" (click)="selectWorkout(workout)">Loslegen</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+
+
+
+
+
+

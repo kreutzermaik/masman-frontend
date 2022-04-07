@@ -1,6 +1,46 @@
 @import 'src/variables';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f9f6f4;
+}
 
+h1 {
+  text-align: center;
+  margin-top: 2% !important;
+}
 
+.primary {
+  color: var(--orange);
+}
+
+.primaryButton {
+  background: var(--orange);
+  color: #fff;
+}
+
+.secondaryButton {
+  background-color: var(--lightOrange);
+  color: var(--lightBlack);
+}
+
+.tertiaryButton {
+  border: 1px solid var(--darkGray) !important;
+  width: 100% !important;
+}
+
+.cancelButton {
+  border: 1px solid var(--darkGray);
+}
+
+.createButton {
+  width: 50%;
+  margin-right: 25% !important;
+  margin-left: 25% !important;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 50px !important;
+  text-transform: uppercase;
+}

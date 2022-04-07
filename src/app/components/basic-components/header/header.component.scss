@@ -17,3 +17,16 @@ a.logout.nav-link {
   }
 }
 
+mat-toolbar {
+  background-color: #fff !important;
+  color: #000 !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 14px 0px !important;
+}
+
+.title {
+  color: var(--orange);
+}
+
+button {
+  color: var(--darkGray);
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../../services/auth/auth.service";
-import {CalendarService} from "../../../../services/calendar/calendar.service";
+import {AuthService} from "../../../../services/auth.service";
+import {CalendarService} from "../../../../services/calendar.service";
 
 @Component({
   selector: 'app-create-event-dialog',
