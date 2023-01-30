@@ -47,13 +47,13 @@
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
-          <mat-label>Gewicht eintragen (z.B. 5kg)</mat-label>
-          <input matInput name="category" [(ngModel)]="exerciseWeight" autocomplete="off">
+          <mat-label>Gewicht in kg eintragen (z.B. 5)</mat-label>
+          <input matInput name="category" [(ngModel)]="exerciseWeight" autocomplete="off" type="number">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
           <mat-label>Anzahl Sets (z.B. 4)</mat-label>
-          <input matInput name="sets" [(ngModel)]="exerciseSets" autocomplete="off">
+          <input matInput name="sets" [(ngModel)]="exerciseSets" autocomplete="off" type="number">
         </mat-form-field>
         <br>
         <button mat-button mat-flat-button class="tertiaryButton" (click)="addExercise()">Weitere Übung hinzufügen</button>

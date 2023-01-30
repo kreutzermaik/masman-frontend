@@ -2,18 +2,24 @@
   <h1> Workouts </h1>
   <button mat-button mat-flat-button class="createButton" (click)="openCreateWorkoutDialog()">Workout erstellen</button>
 
+  <br><br>
+
+  <div>
+    <mat-chip-list class="categoryChips">
+      <mat-chip *ngFor="let category of categories" [id]="category" (click)="filterByCategory(category)">
+        {{category}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+
   <div *ngFor="let workout of workouts" class="container">
 
-    <mat-card class="card">
+    <mat-card class="card" (click)="selectWorkout(workout)">
       <mat-card-header>
-        <div mat-card-avatar>
-          <img src="assets/bizeps.png" alt="Bizeps" class="category-image" *ngIf="workout.category === 'Kraft'">
-          <img src="assets/sixpack.png" alt="Sixpack" class="category-image" *ngIf="workout.category === 'Stability'">
-        </div>
         <mat-card-title>{{workout.name}}</mat-card-title>
         <mat-card-subtitle>
-          <mat-chip-list aria-label="Fish selection">
-            <mat-chip>{{workout.category}}</mat-chip>
+          <mat-chip-list>
+            <mat-chip [id]="workout.category" (click)="filterByCategory(workout.category)">{{workout.category}}</mat-chip>
           </mat-chip-list>
         </mat-card-subtitle>
       </mat-card-header>

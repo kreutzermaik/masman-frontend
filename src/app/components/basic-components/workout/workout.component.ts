@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {WorkoutService} from "../../../services/workout.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CalendarService} from "../../../services/calendar.service";
+import {AuthService} from "../../../services/auth.service";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
+import DateTimeUtils from "../../../utils/DateTimeUtils";
 
 @Component({
   selector: 'app-workout',
@@ -15,10 +19,12 @@ export class WorkoutComponent implements OnInit {
   index: number = 0;
   exerciseIndex: number = 0;
   activeExercise: any;
-  displayActiveExercise: string = 'block';
+  displayActiveExercise: string = 'none';
   displayFinishAlert: string = 'none';
+  displayStartWorkoutButton: string = 'block';
 
-  constructor(public workoutService: WorkoutService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public workoutService: WorkoutService, private route: ActivatedRoute, public auth: AuthService,
+              private afs: AngularFirestore, private router: Router, private calendarService: CalendarService, ) { }
 
   ngOnInit(): void {
     this.getRouteParams();
@@ -39,6 +45,11 @@ export class WorkoutComponent implements OnInit {
     this.workoutIdFromRoute = routeParams.get('workoutId');
   }
 
+  startWorkout(): void {
+    this.displayActiveExercise = 'block';
+    this.displayStartWorkoutButton = 'none';
+  }
+
   /**
    * go to next set of the exercise
    * @param index
@@ -55,8 +66,6 @@ export class WorkoutComponent implements OnInit {
         }
       }
     }
-
-
   }
 
   /**
@@ -74,6 +83,11 @@ export class WorkoutComponent implements OnInit {
   finishWorkout(): void {
     this.displayActiveExercise = 'none';
     this.displayFinishAlert = 'block';
+
+    this.auth.user$.subscribe(user => {
+      this.calendarService.updateCalendarData(user.uid, this.workout.category, DateTimeUtils.formatDate(new Date()), '');
+    });
+
     setTimeout(() => {
       this.router.navigateByUrl('workouts').then();
     }, 5000);

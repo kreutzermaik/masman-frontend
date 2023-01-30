@@ -8,6 +8,10 @@
   margin-top: 2em;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .category-image {
   width: 100%;
   height: auto;
@@ -18,6 +22,44 @@ mat-chip {
   color: #fff !important;
 }
 
+mat-chip:hover {
+  cursor: pointer;
+}
+
 .workouts {
   margin-bottom: 2em;
 }
+
+.categoryChips {
+  display: flex;
+  margin: 0 1.5em !important;
+}
+
+/* Colors of mat-chips */
+mat-chip-list {
+  #Kraft {
+    background-color: var(--kraft) !important;
+  }
+  #HIT {
+    background-color: var(--hit) !important;
+  }
+  #Core {
+    background-color: var(--core) !important;
+  }
+  #Beine {
+    background-color: var(--beine) !important;
+  }
+  #Laufen {
+    background-color: var(--laufen) !important;
+  }
+  #Mobility {
+    background-color: var(--mobility) !important;
+  }
+  #Push {
+    background-color: var(--push) !important;
+  }
+  #Pull {
+    background-color: var(--pull) !important;
+  }
+}
+

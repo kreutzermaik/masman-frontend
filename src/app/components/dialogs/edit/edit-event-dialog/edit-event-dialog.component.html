@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Training Details</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Datum</mat-label>
+        <input matInput name="date" [(ngModel)]="date" autocomplete="off" readonly>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Training</mat-label>
+        <input matInput name="event" [(ngModel)]="data.event" readonly>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Ort</mat-label>
+        <input matInput name="ort" [(ngModel)]="data.location" readonly>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Dauer</mat-label>
+        <input matInput name="time" [(ngModel)]="data.event" readonly>
+      </mat-form-field>
+    </div>
+  </form>
+
+</mat-dialog-content>

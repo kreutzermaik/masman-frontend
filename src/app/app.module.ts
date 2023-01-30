@@ -26,6 +26,7 @@ import { GoalsComponent } from './components/basic-components/goals/goals.compon
 import { WorkoutsComponent } from './components/basic-components/workouts/workouts.component';
 import { WorkoutComponent } from './components/basic-components/workout/workout.component';
 import { CreateWorkoutComponentComponent } from './components/dialogs/create/create-workout-component/create-workout-component.component';
+import { EditEventDialogComponent } from './components/dialogs/edit/edit-event-dialog/edit-event-dialog.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -43,7 +44,8 @@ FullCalendarModule.registerPlugins([
     GoalsComponent,
     WorkoutsComponent,
     WorkoutComponent,
-    CreateWorkoutComponentComponent
+    CreateWorkoutComponentComponent,
+    EditEventDialogComponent
   ],
   imports: [
     BrowserModule,
